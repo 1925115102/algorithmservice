@@ -2,7 +2,7 @@ package edu.iu.c322.project.algorithmservice.model;
 
 import java.util.List;
 
-public interface SchedulingAlgorithm {
+public interface SchedulingStrategy {
     String getName();
     String getDescription();
     List<Course> schedule();

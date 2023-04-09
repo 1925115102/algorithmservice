@@ -2,7 +2,7 @@ package edu.iu.c322.project.algorithmservice.model;
 
 import java.util.List;
 
-public class ScheduleByName implements SchedulingAlgorithm{
+public class MoreMorningSection implements SchedulingStrategy {
 
     @Override
     public String getName() {
