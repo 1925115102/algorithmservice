@@ -4,18 +4,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
-public class TimeSlot {
+public class MyCourse {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-    private String startTime;
-    private String endTime;
-    private String daysOfWeek;
+    int id;
+    String name;
+    String description;
+    String instructor;
+    String startTime;
+    String endTime;
+    String daysOfWeek;
 
     @JsonIgnore
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "course_id")
-    private Course course;
+    @JoinColumn(name = "student_id")
+    Student student;
 
     public int getId() {
         return id;
@@ -23,6 +26,30 @@ public class TimeSlot {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getInstructor() {
+        return instructor;
+    }
+
+    public void setInstructor(String instructor) {
+        this.instructor = instructor;
     }
 
     public String getStartTime() {
@@ -48,24 +75,4 @@ public class TimeSlot {
     public void setDaysOfWeek(String daysOfWeek) {
         this.daysOfWeek = daysOfWeek;
     }
-
-    public Course getCourse() {
-        return course;
-    }
-
-    public void setCourse(Course course) {
-        this.course = course;
-    }
-
-    @Override
-    public String toString() {
-        return "TimeSlot{" +
-                "id=" + id +
-                ", startTime='" + startTime + '\'' +
-                ", endTime='" + endTime + '\'' +
-                ", daysOfWeek='" + daysOfWeek + '\'' +
-                ", course=" + course +
-                '}';
-    }
 }
-

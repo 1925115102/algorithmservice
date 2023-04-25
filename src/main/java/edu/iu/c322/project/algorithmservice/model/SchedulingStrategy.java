@@ -5,5 +5,5 @@ import java.util.List;
 public interface SchedulingStrategy {
     String getName();
     String getDescription();
-    List<Course> schedule();
+    List<Course> schedule(List<Course> shoppingCart);
 }
